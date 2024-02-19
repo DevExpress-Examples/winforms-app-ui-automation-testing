@@ -3,12 +3,12 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1217693)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# How to Create UI Automation Tests for the DevExpress-powered WinForms Application
+# How to Create UI Automation Tests for a DevExpress-powered WinForms Application
 
-This example demonstrates how to write tests in Visual Studio 2022 using UI Automation to test the Windows Forms application with DevExpress UI controls ("UIAutomationTestingExample"). The application includes the following data forms:
+This example demonstrates how to write tests in Visual Studio 2022 using UI Automation to test a Windows Forms application with DevExpress UI controls ("UIAutomationTestingExample"). The application includes the following data forms:
 
 * **LogIn** - simulates a call to an authorization service that asynchronously returns the user's login result (with a delay).
-* **Customers** – Contains the WinForms Data Grid that displays customer information. The "Name" column displays customer names from a data source. Values in the "Is Modified" unbound column indicate whether the end-user modified customer information.
+* **Customers** – Contains the WinForms Data Grid that displays customer information. The "Name" column displays customer names from a data source. Values in the "Is Modified" unbound column indicate whether a user modified customer information.
 
 The **TestRunner** project includes 3 tests:
 
@@ -18,7 +18,7 @@ The **TestRunner** project includes 3 tests:
 
 ## Run Tests
 
-In the Solution Explorer, expand the project with tests ("TestRunner"), right-click the *Tests.cs* (or *Tests.vb*) file with tests to invoke the context menu, and click "Run Tests".
+In the Solution Explorer, expand the project with tests ("TestRunner"), right-click the *Tests.cs* (or *Tests.vb*) file to invoke the context menu, and click "Run Tests".
 
 ## Files to Review
 
