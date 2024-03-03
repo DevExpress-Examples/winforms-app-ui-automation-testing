@@ -5,10 +5,10 @@
 <!-- default badges end -->
 # How to Create UI Automation Tests for a DevExpress-powered WinForms Application
 
-This example demonstrates how to write tests in Visual Studio 2022 using UI Automation to test a Windows Forms application with DevExpress UI controls ("UIAutomationTestingExample"). The application includes the following data forms:
+This example uses Visual Studio 2022 and UI Automation to test a DevExpress-powered Windows Forms application ("UIAutomationTestingExample"). The application includes the following data forms:
 
-* **LogIn** - simulates a call to an authorization service that asynchronously returns the user's login result (with a delay).
-* **Customers** – Contains the WinForms Data Grid that displays customer information. The "Name" column displays customer names from a data source. Values in the "Is Modified" unbound column indicate whether a user modified customer information.
+* **LogIn** - Simulates a call to an authorization service that asynchronously returns a user's login result (with a delay).
+* **Customers** – Includes a DevExpress WinForms Data Grid used to display customer information on-screen. The "Name" column displays customer names from a data source. The "Is Modified" unbound column indicates whether the user modified customer information.
 
 The **TestRunner** project includes 3 tests:
 
