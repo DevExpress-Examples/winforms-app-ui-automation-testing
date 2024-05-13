@@ -22,7 +22,7 @@ In the Solution Explorer, expand the project with tests ("TestRunner"), right-cl
 
 ## Files to Review
 
-- [Tests.cs](./CS/TestRunner/Tests.cs) (VB: [Tests.vb](./VB/TestsRunner/Tests.vb))
+- [Tests.cs](./CS/TestRunner/Tests.cs) (VB: [Tests.vb](./VB/TestRunner/Tests.vb))
 - [Program.cs](./CS/UIAutomationTestingExample/Program.cs) (VB: [Program.vb](./VB/UIAutomationTestingExample/Program.vb))
 
 ## See Also
