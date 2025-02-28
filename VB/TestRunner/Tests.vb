@@ -85,17 +85,17 @@ Namespace TestRunner
             Dim isModifiedColumnIndex As Integer = Enumerable.ToList(customersTablePattern.Current.GetColumnHeaders()).FindIndex(Function(h) Equals(h.Current.Name, "Is Modified"))
             Dim isModifiedCell As AutomationElement = customersTablePattern.GetItem(1, isModifiedColumnIndex)
             Dim isModifiedCellValuePattern As ValuePattern = CType(isModifiedCell.GetCurrentPattern(ValuePattern.Pattern), ValuePattern)
-            Assert.AreEqual(isModifiedCellValuePattern.Current.Value, "Checked")
+            Assert.That(isModifiedCellValuePattern.Current.Value, [Is].EqualTo("Checked"))
         End Sub
 
         Private Sub CheckSuccessMessageBox()
             customersForm = AutomationElement.RootElement.FindFirstByNameWithTimeout(TreeScope.Children, customersFormAccessibleName, 10000)
-            Assert.IsNotNull(customersForm)
+            Assert.That(customersForm, [Is].Not.Null)
         End Sub
 
         Private Sub CheckErrorLabel()
             Dim errorLabelElement As AutomationElement = loginForm.FindFirstByNameWithTimeout(TreeScope.Children, "Invalid User or Password", 10000)
-            Assert.IsNotNull(errorLabelElement)
+            Assert.That(errorLabelElement, [Is].Not.Null)
         End Sub
 
         Private Sub LogIn(ByVal username As String, ByVal password As String)
