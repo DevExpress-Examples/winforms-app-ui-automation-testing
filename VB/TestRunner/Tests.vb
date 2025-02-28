@@ -14,15 +14,15 @@ Namespace TestRunner
 
         Private ReadOnly appRelativePath As String = "..\..\..\..\UIAutomationTestingExample\bin\Debug\UIAutomationTestingExample.exe"
 
-        Private ReadOnly usernameAccessbleName As String = "Username"
+        Private ReadOnly usernameAccessibleName As String = "Username"
 
-        Private ReadOnly passwordAccessbleName As String = "Password"
+        Private ReadOnly passwordAccessibleName As String = "Password"
 
-        Private ReadOnly logInButtonAccessbleName As String = "Log In"
+        Private ReadOnly logInButtonAccessibleName As String = "Log In"
 
-        Private ReadOnly logInFormAccessbleName As String = "CRM Log In Form"
+        Private ReadOnly logInFormAccessibleName As String = "CRM Log In Form"
 
-        Private ReadOnly customersFormAccessbleName As String = "CRM Customers Form"
+        Private ReadOnly customersFormAccessibleName As String = "CRM Customers Form"
 
         Private ReadOnly customersGridAutomationID As String = "customersGrid"
 
@@ -67,7 +67,7 @@ Namespace TestRunner
         Public Sub ModifiedCustomerTest()
             LogIn(testExistingUserLogin, testExistingUserPassword)
             ' Finds the GridControl and gets its TablePattern.
-            customersForm = AutomationElement.RootElement.FindFirstByNameWithTimeout(TreeScope.Children, customersFormAccessbleName, 10000)
+            customersForm = AutomationElement.RootElement.FindFirstByNameWithTimeout(TreeScope.Children, customersFormAccessibleName, 10000)
             Dim customersGrid As AutomationElement = customersForm.FindFirstByIdWithTimeout(TreeScope.Children, customersGridAutomationID, 10000)
             Dim customersTablePattern As TablePattern = CType(customersGrid.GetCurrentPattern(TablePattern.Pattern), TablePattern)
             ' Activates a cell within the GridControl.
@@ -85,14 +85,14 @@ Namespace TestRunner
             selectionItemPattern.Select()
             Thread.Sleep(1000)
             ' Checks if the value in the "Is Modified" column has changed.
-            Dim isModiedColumnIndex As Integer = Enumerable.ToList(customersTablePattern.Current.GetColumnHeaders()).FindIndex(Function(h) Equals(h.Current.Name, "Is Modified"))
-            Dim isModifiedCell As AutomationElement = customersTablePattern.GetItem(1, isModiedColumnIndex)
+            Dim isModifiedColumnIndex As Integer = Enumerable.ToList(customersTablePattern.Current.GetColumnHeaders()).FindIndex(Function(h) Equals(h.Current.Name, "Is Modified"))
+            Dim isModifiedCell As AutomationElement = customersTablePattern.GetItem(1, isModifiedColumnIndex)
             Dim isModifiedCellValuePattern As ValuePattern = CType(isModifiedCell.GetCurrentPattern(ValuePattern.Pattern), ValuePattern)
             Assert.AreEqual(isModifiedCellValuePattern.Current.Value, "Checked")
         End Sub
 
         Private Sub CheckSuccessMessageBox()
-            customersForm = AutomationElement.RootElement.FindFirstByNameWithTimeout(TreeScope.Children, customersFormAccessbleName, 10000)
+            customersForm = AutomationElement.RootElement.FindFirstByNameWithTimeout(TreeScope.Children, customersFormAccessibleName, 10000)
             Assert.IsNotNull(customersForm)
         End Sub
 
@@ -103,10 +103,10 @@ Namespace TestRunner
 
         Private Sub LogIn(ByVal username As String, ByVal password As String)
             ' Find the LogIn form and its main elements.
-            loginForm = AutomationElement.RootElement.FindFirstByNameWithTimeout(TreeScope.Children, logInFormAccessbleName, 10000)
-            Dim usernameElement As AutomationElement = loginForm.FindFirstByNameWithTimeout(TreeScope.Children, usernameAccessbleName, 10000)
-            Dim passwordElement As AutomationElement = loginForm.FindFirstByNameWithTimeout(TreeScope.Children, passwordAccessbleName, 10000)
-            Dim logInButtonElement As AutomationElement = loginForm.FindFirstByNameWithTimeout(TreeScope.Children, logInButtonAccessbleName, 10000)
+            loginForm = AutomationElement.RootElement.FindFirstByNameWithTimeout(TreeScope.Children, logInFormAccessibleName, 10000)
+            Dim usernameElement As AutomationElement = loginForm.FindFirstByNameWithTimeout(TreeScope.Children, usernameAccessibleName, 10000)
+            Dim passwordElement As AutomationElement = loginForm.FindFirstByNameWithTimeout(TreeScope.Children, passwordAccessibleName, 10000)
+            Dim logInButtonElement As AutomationElement = loginForm.FindFirstByNameWithTimeout(TreeScope.Children, logInButtonAccessibleName, 10000)
             ' Gets automation patterns to set editor values.
             Dim usernameValuePattern As ValuePattern = CType(usernameElement.GetCurrentPattern(ValuePattern.Pattern), ValuePattern)
             Dim passwordValuePattern As ValuePattern = CType(passwordElement.GetCurrentPattern(ValuePattern.Pattern), ValuePattern)
