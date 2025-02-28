@@ -1,11 +1,8 @@
-Imports NUnit.Framework
-Imports System
-Imports System.Diagnostics
 Imports System.IO
-Imports System.Linq
+Imports System.Runtime.CompilerServices
 Imports System.Threading
 Imports System.Windows.Automation
-Imports System.Runtime.CompilerServices
+Imports NUnit.Framework
 
 Namespace TestRunner
 
