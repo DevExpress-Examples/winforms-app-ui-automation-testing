@@ -12,11 +12,11 @@ namespace TestRunner {
     public class Tests {
 
         readonly string appRelativePath = @"..\..\..\..\UIAutomationTestingExample\bin\Debug\UIAutomationTestingExample.exe";
-        readonly string usernameAccessbleName = "Username";
-        readonly string passwordAccessbleName = "Password";
-        readonly string logInButtonAccessbleName = "Log In";
-        readonly string logInFormAccessbleName = "CRM Log In Form";
-        readonly string customersFormAccessbleName = "CRM Customers Form";
+        readonly string usernameAccessibleName = "Username";
+        readonly string passwordAccessibleName = "Password";
+        readonly string logInButtonAccessibleName = "Log In";
+        readonly string logInFormAccessibleName = "CRM Log In Form";
+        readonly string customersFormAccessibleName = "CRM Customers Form";
         readonly string customersGridAutomationID = "customersGrid";
         readonly string testExistingUserLogin = "TestExistingUser";
         readonly string testExistingUserPassword = "nJt34%77fytpl";
@@ -55,7 +55,7 @@ namespace TestRunner {
             LogIn(testExistingUserLogin, testExistingUserPassword);
 
             // Finds the GridControl and gets its TablePattern.
-            customersForm = AutomationElement.RootElement.FindFirstByNameWithTimeout(TreeScope.Children, customersFormAccessbleName, 10000);
+            customersForm = AutomationElement.RootElement.FindFirstByNameWithTimeout(TreeScope.Children, customersFormAccessibleName, 10000);
             AutomationElement customersGrid = customersForm.FindFirstByIdWithTimeout(TreeScope.Children, customersGridAutomationID, 10000);
             TablePattern customersTablePattern = (TablePattern)customersGrid.GetCurrentPattern(TablePattern.Pattern);
 
@@ -77,13 +77,13 @@ namespace TestRunner {
             Thread.Sleep(1000); 
 
             // Checks if the value in the "Is Modified" column has changed.
-            int isModiedColumnIndex = customersTablePattern.Current.GetColumnHeaders().ToList().FindIndex(h => h.Current.Name == "Is Modified");
-            AutomationElement isModifiedCell = customersTablePattern.GetItem(1, isModiedColumnIndex);
+            int isModifiedColumnIndex = customersTablePattern.Current.GetColumnHeaders().ToList().FindIndex(h => h.Current.Name == "Is Modified");
+            AutomationElement isModifiedCell = customersTablePattern.GetItem(1, isModifiedColumnIndex);
             ValuePattern isModifiedCellValuePattern = (ValuePattern)isModifiedCell.GetCurrentPattern(ValuePattern.Pattern);
             Assert.AreEqual(isModifiedCellValuePattern.Current.Value, "Checked");
         }
         void CheckSuccessMessageBox() {
-            customersForm = AutomationElement.RootElement.FindFirstByNameWithTimeout(TreeScope.Children, customersFormAccessbleName, 10000);
+            customersForm = AutomationElement.RootElement.FindFirstByNameWithTimeout(TreeScope.Children, customersFormAccessibleName, 10000);
             Assert.IsNotNull(customersForm);
         }
         void CheckErrorLabel() {
@@ -93,10 +93,10 @@ namespace TestRunner {
         
         void LogIn(string username, string password) {
             // Find the LogIn form and its main elements.
-            loginForm = AutomationElement.RootElement.FindFirstByNameWithTimeout(TreeScope.Children, logInFormAccessbleName, 10000);
-            AutomationElement usernameElement = loginForm.FindFirstByNameWithTimeout(TreeScope.Children, usernameAccessbleName, 10000);
-            AutomationElement passwordElement = loginForm.FindFirstByNameWithTimeout(TreeScope.Children, passwordAccessbleName, 10000);
-            AutomationElement logInButtonElement = loginForm.FindFirstByNameWithTimeout(TreeScope.Children, logInButtonAccessbleName, 10000);
+            loginForm = AutomationElement.RootElement.FindFirstByNameWithTimeout(TreeScope.Children, logInFormAccessibleName, 10000);
+            AutomationElement usernameElement = loginForm.FindFirstByNameWithTimeout(TreeScope.Children, usernameAccessibleName, 10000);
+            AutomationElement passwordElement = loginForm.FindFirstByNameWithTimeout(TreeScope.Children, passwordAccessibleName, 10000);
+            AutomationElement logInButtonElement = loginForm.FindFirstByNameWithTimeout(TreeScope.Children, logInButtonAccessibleName, 10000);
 
             // Gets automation patterns to set editor values.
             ValuePattern usernameValuePattern = (ValuePattern)usernameElement.GetCurrentPattern(ValuePattern.Pattern);
